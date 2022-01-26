@@ -1,0 +1,21 @@
+--入数比较
+select ItemCode,ItemName,U_PackQty 箱入数,U_B3_Uom2Rate 辅助比例,U_PackQty-U_B3_Uom2Rate 差异
+from OITM
+where U_PackQty-U_B3_Uom2Rate <> 0
+
+--所有入数
+select ItemCode,U_PackQty from OITM
+
+--批次对应日期
+select DistNumber,ItemCode,ObjType,MnfDate,ExpDate from OBTN order by DistNumber asc
+
+--长度重量
+select ItemCode,ItemName,U_PackNetWht 箱净重,U_PackGroWht 箱毛重,
+U_PackLength 外箱长,U_PackWidth 外箱宽,U_Packheight 外箱高,
+U_PackLength1 中盒长,U_PackWidth1 中盒宽,U_PackHeight1 中盒高,
+U_Length 商品长,U_Width 商品宽,U_Width,U_height 商品高
+from OITM
+
+--Barcode
+Select Itemcode SAP代码,ItemName SAP品名,Spec 汉询代码,U_B3_BarCode 条形码,U_OutBarCode 外箱码
+from OITM
