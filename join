@@ -12,3 +12,11 @@ and A.U_FrmLocCode = 'W0101'
 and A.U_ItemCode = 'AJ0000003'
 --and B.U_DocDate between ‘2020-12-16’ and ‘2020-12-16’ 
 order by B.DocEntry asc
+
+
+
+select B.DocDueDate’日期’,B.DocStatus’出库单据状态’,B.U_Z38_OrderNo’汉询订单号’,B.U_CustNo’客户订单号’,A.WhsCode’仓库’,
+A.U_B3_DlvyEntry’发货通知单号’,A.U_B3_BsNum’销售订单号’,B.U_Z38_ShipType’物流方式’,B.DocDate’出库日期’ ,B.Comments’备注’,
+A.ItemCode’品号’,A.Dscription’品名’,A.Quantity’数量’ from DLN1 A,ODLN B
+where A.DocEntry = B.DocEntry 
+and B.DocDate > ‘2020-11-01’
