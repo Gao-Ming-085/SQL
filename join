@@ -1,0 +1,14 @@
+select B.DocEntry,A.U_ItemCode 产品代码,A.U_ItemName 产品名称,A.U_FrmLocName 出库仓库,
+A.U_FromQty 出库数量 ,A.U_ToLocCode,A.U_ToLocName 入库仓库,A.U_ToQty 入库数量,
+b.U_DocDate
+from [@B3171] A
+inner join [@B3170] B
+on A.DocEntry = B.DocEntry
+where B.U_DocDate > '2021-01-01'
+--and B.Status = 'C'
+--and A.U_toqty = 0
+--and A.U_ToLocCode = 'B2B'
+and A.U_FrmLocCode = 'W0101'
+and A.U_ItemCode = 'AJ0000003'
+--and B.U_DocDate between ‘2020-12-16’ and ‘2020-12-16’ 
+order by B.DocEntry asc
